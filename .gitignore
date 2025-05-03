@@ -1,0 +1,30 @@
+# Node.js
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# dotenv environment variables
+.env
+.env.*
+
+# Build output
+dist/
+build/
+
+# Optional npm cache directory
+.npm
+
+# Yarn Integrity file
+yarn.lock
+
+# VSCode settings
+.vscode/ 
