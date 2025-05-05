@@ -448,23 +448,125 @@ body {
 
 
 
-/* Footer */
-footer {
-    padding: 2rem;
-    text-align: center;
-    color: var(--light-text);
-    font-size: 0.9rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
-    background-color: var(--card-bg);
-    position: relative;
+/* Achievements Section */
+.achievements-section {
+    margin-top: 30px;
+    padding: 0 20px;
 }
 
+.tabs-container {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
 
+.tab {
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+    color: var(--light-text);
+}
+
+.tab.active {
+    color: var(--text-color);
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient);
+    border-radius: 3px 3px 0 0;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.achievement-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: var(--gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.achievement-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.achievement-details {
+    flex: 1;
+}
+
+.achievement-details h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.achievement-details p {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    margin-bottom: 5px;
+}
+
+.achievement-link {
+    display: inline-block;
+    color: var(--secondary-color);
+    font-size: 0.85rem;
+    text-decoration: none;
+    margin-top: 5px;
+    transition: color 0.3s ease;
+}
+
+.achievement-link:hover {
+    color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 20px;
+}
 
 .copyright {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--light-text);
-    margin-top: 50px;
+    opacity: 0.7;
 }
 
 /* Responsive styles */

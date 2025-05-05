@@ -9,6 +9,32 @@ document.addEventListener('DOMContentLoaded', () => {
         loadingOverlay.style.visibility = 'hidden';
     }, 1500);
     
+    // Tab switching functionality
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active class from all tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            tab.classList.add('active');
+            
+            // Hide all tab contents
+            tabContents.forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Show the selected tab content
+            const tabId = tab.getAttribute('data-tab');
+            const activeContent = document.getElementById(`${tabId}-content`);
+            if (activeContent) {
+                activeContent.style.display = 'block';
+            }
+        });
+    });
+    
 
     
     // Animate links with staggered delay
@@ -33,6 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
             link.style.transform = 'translateY(0)';
         }, 800 + (index * 120));
     });
+    
+    // 初期表示時に「リンク集」タブを選択状態にする
+    const linksTab = document.querySelector('.tab[data-tab="links"]');
+    if (linksTab) {
+        linksTab.classList.add('active');
+        const linksContent = document.getElementById('links-content');
+        if (linksContent) {
+            linksContent.style.display = 'block';
+        }
+    }
     
     // 3D tilt effect and hover functionality removed
 
