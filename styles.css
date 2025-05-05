@@ -458,6 +458,26 @@ body {
     display: flex;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+    padding-bottom: 5px;
+}
+
+/* カスタムスクロールバースタイル */
+.tabs-container::-webkit-scrollbar {
+    height: 4px;
+}
+
+.tabs-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.tabs-container::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 20px;
 }
 
 .tab {
@@ -467,6 +487,8 @@ body {
     position: relative;
     transition: all 0.3s ease;
     color: var(--light-text);
+    flex: 0 0 auto;
+    white-space: nowrap;
 }
 
 .tab.active {
@@ -588,8 +610,14 @@ footer {
         padding: 1.25rem 1.5rem;
     }
     
+    .tabs-container {
+        padding-bottom: 5px;
+    }
     
-        }
+    .tab {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
     
     .link-item {
         padding: 1rem 1.2rem;
@@ -599,8 +627,4 @@ footer {
         width: 38px;
         height: 38px;
     }
-    
-
-    
-
 }
