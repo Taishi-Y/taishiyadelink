@@ -34,13 +34,14 @@
             
             <div class="profile-header">
                 <div class="gradient-circle"></div>
-                <div class="profile-img">
+                <div class="profile-img clickable" id="profile-image-container">
                     <img src="profile.png" alt="taishiyade Profile" class="profile-image">
                     <div class="avatar-placeholder">
                         <i class="fas fa-user"></i>
                     </div>
                 </div>
-                <h1 class="glitch-effect" data-text="taishiyade">taishiyade</h1>
+                <h1 id="taishiyade-title" class="glitch-effect clickable" data-text="taishiyade">taishiyade</h1>
+                <!-- ボタンを削除しました -->
                 <div class="bio-container">
                     <ul class="bio-list">
                         <li><a href="https://www.solomaker.dev/" style="color: inherit; text-decoration: underline;">solomaker.dev</a> の作者</li>
@@ -242,6 +243,23 @@
             <footer>
                 <p class="copyright">&copy; 2025 taishiyade - All Rights Reserved</p>
             </footer>
+        </div>
+    </div>
+    
+    <!-- モーダルウィンドウ -->
+    <div id="taishiyade-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>山崎 大志</h2>
+            <h3>株式会社AlphaByte 代表取締役CEO</h3>
+            <div class="modal-bio">
+                <p>2016年よりフリーランスモバイルアプリ開発者として独立し、文部科学省が展開する「トビタテ！留学JAPAN」日本代表プログラムに採択され、アントレプレナーシップとエンジニアリングを学ぶため、インドのバンガロールとアメリカのシリコンバレーに留学。</p>
+                <p>その後スタートアップ企業を中心に10社以上のプロダクト開発を支援。米国YCombinator出身のMakeSchoolにてモバイルアプリインストラクターを務める。</p>
+                <p>2018年、サンフランシスコにてZ世代向けメンタルヘルスアプリWaffleJournalを開発するPoppyAI,Inc.を創業、CTOに就任。日米から累計3億円を資金調達し、プロダクト開発、グロース戦略、データ分析、採用、チームビルディングなどに従事。</p>
+                <p>2021年、SnapInc.(Snapchat)が運営するアクセラレータープログラム「Yellow」に日本人として初採択。</p>
+                <p>2023年、株式会社AlphaByteを設立。複数のスタートアップのシステム開発やグローバル採用のコンサルティング。生成AI領域での自社プロダクト開発を行っている。</p>
+                <p>2024年、日本からグローバルへのプロダクトグロースを支援、シリコンバレーのスタートアップの日本市場への参入をサポートするSolomaker.devをリリース。日本のプロダクト開発者が集うプラットフォームとして数万人が利用している。</p>
+            </div>
         </div>
     </div>
     

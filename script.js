@@ -1,5 +1,44 @@
 // Advanced animations and interactions
 document.addEventListener('DOMContentLoaded', () => {
+    // Modal functionality
+    const modal = document.getElementById('taishiyade-modal');
+    const taishiyadeTitle = document.getElementById('taishiyade-title');
+    const profileImage = document.getElementById('profile-image-container');
+    const closeBtn = document.querySelector('.close-modal');
+    const modalContent = document.querySelector('.modal-content');
+    
+    // 共通のモーダルを開く関数
+    const openModal = () => {
+        modal.style.display = 'block';
+        // Use setTimeout to ensure display:block is applied before adding the show class
+        setTimeout(() => {
+            modal.classList.add('show');
+        }, 10);
+    };
+    
+    // taishiyadeタイトルがクリックされたときにモーダルを開く
+    taishiyadeTitle.addEventListener('click', openModal);
+    
+    // プロフィール画像がクリックされたときにモーダルを開く
+    profileImage.addEventListener('click', openModal);
+    
+    // Close modal when X is clicked
+    closeBtn.addEventListener('click', closeModal);
+    
+    // Close modal when clicking outside the modal content
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // Close modal function
+    function closeModal() {
+        modal.classList.remove('show');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 500); // Match this with the CSS transition time
+    }
     // Handle loading screen
     const loadingOverlay = document.querySelector('.loading-overlay');
     
