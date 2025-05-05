@@ -34,21 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 800 + (index * 120));
     });
     
-    // 3D tilt effect on profile card - disabled to prevent distortion
-    const card = document.querySelector('.profile-card');
-    const container = document.querySelector('.container');
-    
-    // Subtle hover effect without 3D distortion
-    container.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-5px)';
-        card.style.boxShadow = '0 30px 100px rgba(0, 0, 0, 0.35)';
-    });
-    
-    // Return to original position when mouse leaves
-    container.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0)';
-        card.style.boxShadow = '0 25px 80px rgba(0, 0, 0, 0.25)';
-    });
+    // 3D tilt effect and hover functionality removed
 
     
     // Theme toggle functionality
