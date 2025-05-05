@@ -34,21 +34,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 800 + (index * 120));
     });
     
-    // 3D tilt effect on profile card
+    // 3D tilt effect on profile card - disabled to prevent distortion
     const card = document.querySelector('.profile-card');
     const container = document.querySelector('.container');
     
-    container.addEventListener('mousemove', (e) => {
-        const xAxis = (window.innerWidth / 2 - e.clientX) / 25;
-        const yAxis = (window.innerHeight / 2 - e.clientY) / 25;
-        
-        card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    // Subtle hover effect without 3D distortion
+    container.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-5px)';
+        card.style.boxShadow = '0 30px 100px rgba(0, 0, 0, 0.35)';
     });
     
     // Return to original position when mouse leaves
     container.addEventListener('mouseleave', () => {
-        card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+        card.style.transform = 'translateY(0)';
+        card.style.boxShadow = '0 25px 80px rgba(0, 0, 0, 0.25)';
     });
+
     
     // Theme toggle functionality
     const themeToggle = document.querySelector('.theme-toggle');
@@ -69,39 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isDarkMode = !isDarkMode;
     });
     
-    // Animate stats counters
-    const stats = document.querySelectorAll('.stat-number');
-    
-    const animateCounter = (element, target, duration) => {
-        const start = 0;
-        const increment = 1;
-        const stepTime = Math.abs(Math.floor(duration / target));
-        let current = start;
-        
-        const timer = setInterval(() => {
-            current += increment;
-            element.innerText = current + '+';
-            
-            if (current >= target) {
-                element.innerText = target + '+';
-                clearInterval(timer);
-            }
-        }, stepTime);
-    };
-    
-    // Use Intersection Observer to trigger counter animation when visible
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const el = entry.target;
-                const target = parseInt(el.innerText);
-                animateCounter(el, target, 1500);
-                observer.unobserve(el);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    stats.forEach(stat => observer.observe(stat));
+
     
     // Parallax scrolling effect for background shapes
     window.addEventListener('scroll', () => {
