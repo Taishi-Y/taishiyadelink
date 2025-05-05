@@ -9,41 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadingOverlay.style.visibility = 'hidden';
     }, 1500);
     
-    // Initialize custom cursor
-    const cursor = document.querySelector('.cursor');
-    const cursorFollower = document.querySelector('.cursor-follower');
-    
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        
-        // Smooth follow with slight delay
-        setTimeout(() => {
-            cursorFollower.style.left = e.clientX + 'px';
-            cursorFollower.style.top = e.clientY + 'px';
-        }, 50);
-    });
-    
-    // Cursor effects on links and interactive elements
-    const interactiveElements = document.querySelectorAll('.link-item, .theme-toggle, .profile-img');
-    
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursorFollower.style.width = '60px';
-            cursorFollower.style.height = '60px';
-            cursorFollower.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-            cursorFollower.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-            cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
-        });
-        
-        el.addEventListener('mouseleave', () => {
-            cursorFollower.style.width = '40px';
-            cursorFollower.style.height = '40px';
-            cursorFollower.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-            cursorFollower.style.backgroundColor = 'transparent';
-            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-        });
-    });
+
     
     // Animate links with staggered delay
     const links = document.querySelectorAll('.link-item');
