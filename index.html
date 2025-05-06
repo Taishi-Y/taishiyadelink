@@ -32,8 +32,7 @@
                 <i class="fas fa-moon"></i>
             </div>
             
-            <div class="profile-header">
-                <div class="gradient-circle"></div>
+            <div class="profile-header">                <div class="gradient-circle"></div>
                 <div class="profile-img clickable" id="profile-image-container">
                     <img src="profile.png" alt="taishiyade Profile" class="profile-image">
                     <div class="avatar-placeholder">
@@ -79,12 +78,7 @@
                             <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
                         </a>
                         
-                        <a href="https://note.com/taishiyade" class="link-item" data-color="#41C9B4">
-                            <div class="link-icon"><img src="noteicon.png" alt="Note Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;"></div>
-                            <div class="link-text">Note</div>
-                            <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
-                        </a>
-                        
+
                         <a href="https://www.instagram.com/taishi_jade" class="link-item" data-color="#E1306C">
                             <div class="link-icon"><i class="fab fa-instagram"></i></div>
                             <div class="link-text">Instagram</div>
@@ -112,6 +106,24 @@
                         <a href="https://x.com/taishi_jade" class="link-item" data-color="#1DA1F2">
                             <div class="link-icon"><i class="fab fa-twitter"></i></div>
                             <div class="link-text">X (Twitter)</div>
+                            <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
+                        </a>
+                        
+                        <a href="https://www.linkedin.com/in/taishi-yamasaki/" class="link-item" data-color="#0A66C2">
+                            <div class="link-icon"><i class="fab fa-linkedin-in"></i></div>
+                            <div class="link-text">LinkedIn</div>
+                            <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
+                        </a>
+                        
+                        <a href="https://www.facebook.com/taishi.yamasaki.98/" class="link-item" data-color="#1877F2">
+                            <div class="link-icon"><i class="fab fa-facebook-f"></i></div>
+                            <div class="link-text">Facebook</div>
+                            <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
+                        </a>
+                        
+                        <a href="#" class="link-item" data-color="#EA4335" id="email-contact-link">
+                            <div class="link-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="link-text">メールでのお問い合わせ</div>
                             <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
                         </a>
                     </div>
@@ -246,7 +258,7 @@
         </div>
     </div>
     
-    <!-- モーダルウィンドウ -->
+    <!-- プロフィールモーダルウィンドウ -->
     <div id="taishiyade-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -259,6 +271,25 @@
                 <p>2021年、SnapInc.(Snapchat)が運営するアクセラレータープログラム「Yellow」に日本人として初採択。</p>
                 <p>2023年、株式会社AlphaByteを設立。複数のスタートアップのシステム開発やグローバル採用のコンサルティング。生成AI領域での自社プロダクト開発を行っている。</p>
                 <p>2024年、日本からグローバルへのプロダクトグロースを支援、シリコンバレーのスタートアップの日本市場への参入をサポートするSolomaker.devをリリース。日本のプロダクト開発者が集うプラットフォームとして数万人が利用している。</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- メール用モーダルウィンドウ -->
+    <div id="email-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>メールでのお問い合わせ</h2>
+            <div class="email-options">
+                <a href="mailto:taishi@alphabyte.co.jp" class="email-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    メールを送る
+                </a>
+                <button id="copy-email-btn" class="email-btn">
+                    <i class="fas fa-copy"></i>
+                    メールアドレスをコピー
+                </button>
+                <div id="copy-notification">コピーしました！</div>
             </div>
         </div>
     </div>

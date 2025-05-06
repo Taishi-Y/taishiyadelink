@@ -1,14 +1,17 @@
 // Advanced animations and interactions
 document.addEventListener('DOMContentLoaded', () => {
     // Modal functionality
-    const modal = document.getElementById('taishiyade-modal');
+    const profileModal = document.getElementById('taishiyade-modal');
+    const emailModal = document.getElementById('email-modal');
     const taishiyadeTitle = document.getElementById('taishiyade-title');
     const profileImage = document.getElementById('profile-image-container');
-    const closeBtn = document.querySelector('.close-modal');
-    const modalContent = document.querySelector('.modal-content');
+    const emailContactLink = document.getElementById('email-contact-link');
+    const closeBtns = document.querySelectorAll('.close-modal');
+    const copyEmailBtn = document.getElementById('copy-email-btn');
+    const copyNotification = document.getElementById('copy-notification');
     
     // 共通のモーダルを開く関数
-    const openModal = () => {
+    const openModal = (modal) => {
         modal.style.display = 'block';
         // Use setTimeout to ensure display:block is applied before adding the show class
         setTimeout(() => {
@@ -16,24 +19,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 10);
     };
     
-    // taishiyadeタイトルがクリックされたときにモーダルを開く
-    taishiyadeTitle.addEventListener('click', openModal);
+    // taishiyadeタイトルがクリックされたときにプロフィールモーダルを開く
+    taishiyadeTitle.addEventListener('click', () => openModal(profileModal));
     
-    // プロフィール画像がクリックされたときにモーダルを開く
-    profileImage.addEventListener('click', openModal);
+    // プロフィール画像がクリックされたときにプロフィールモーダルを開く
+    profileImage.addEventListener('click', () => openModal(profileModal));
+    
+    // メールリンクがクリックされたときにメールモーダルを開く
+    emailContactLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal(emailModal);
+    });
+    
+    // メールアドレスをコピーする機能
+    copyEmailBtn.addEventListener('click', () => {
+        const emailAddress = 'taishi@alphabyte.co.jp';
+        navigator.clipboard.writeText(emailAddress).then(() => {
+            // コピー成功時の通知を表示
+            copyNotification.style.opacity = '1';
+            setTimeout(() => {
+                copyNotification.style.opacity = '0';
+            }, 2000);
+        }).catch(err => {
+            console.error('コピーに失敗しました:', err);
+        });
+    });
     
     // Close modal when X is clicked
-    closeBtn.addEventListener('click', closeModal);
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const parentModal = btn.closest('.modal');
+            closeModal(parentModal);
+        });
+    });
     
     // Close modal when clicking outside the modal content
     window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeModal();
+        if (e.target.classList.contains('modal')) {
+            closeModal(e.target);
         }
     });
     
     // Close modal function
-    function closeModal() {
+    function closeModal(modal) {
         modal.classList.remove('show');
         setTimeout(() => {
             modal.style.display = 'none';
